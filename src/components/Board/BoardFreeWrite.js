@@ -88,6 +88,7 @@ const BoardFreeWrite = () => {
           position: 'relative',
           top: '80px',
           right: '600px',
+          zIndex: '1',
         }}
         id='attachedFile'
         ref={fileInput}

@@ -78,7 +78,7 @@ const JoinList = ({ setPBtnCnt, currentPage, onPageChange }) => {
   };
 
   useEffect(() => {
-    if (loggedUser.mode == 'user' || loggedUser.mode == 'lawyer') {
+    if (loggedUser.mode !== 'master') {
       alert('페이지 접근 권한이 없습니다.');
       navigate('/');
     } else {

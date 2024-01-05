@@ -54,18 +54,23 @@ const LoginForm = ({ mode, setMode }) => {
     });
 
     if (res.status === 200) {
-      if (loggedUser.mode === 'master') {
-        console.log(loggedUser.mode);
-        console.log('master로그인');
+      const data = await res.json();
+      // 관리자 처리
+      if (data.authority === 'master') {
+        console.log('master 로그인');
+        const userInfo = { id: data.id, name: 'master', mode: data.authority };
+        dispatch(setUser(userInfo));
         navigate('/joinList/');
         return;
       }
-      const data = await res.json();
+
       localStorage.setItem('accessToken', data.accessToken);
+      // 미승인 변호사 처리
       const userInfo = { id: data.id, name: data.name, mode: data.authority };
       if (data.authority === 'notApproval') {
         alert('미승인 상태의 변호사는 접근 권한이 제한될 수 있습니다.');
       }
+      // 그외 로그인 성공 처리
       dispatch(setUser(userInfo));
     } else {
       const text = await res.text();

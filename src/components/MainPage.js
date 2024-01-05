@@ -45,6 +45,12 @@ const MainPage = () => {
         dispatch(logout());
         alert('로그아웃 되었습니다.');
         navigate('/');
+      } else if (res.status === 500) {
+        console.log('소셜 로그인 로그아웃 처리 오류');
+        localStorage.clear();
+        dispatch(logout());
+        alert('로그아웃 되었습니다.');
+        navigate('/');
       }
     } catch (error) {
       console.error('로그아웃 에러:', error);
