@@ -74,7 +74,7 @@ const Bupbong = (effect, deps) => {
 
     const amount = parseInt(amountStr.replace(/,/g, ''), 10);
 
-    IMP.init([['imp42507411']]);
+    IMP.init('imp42507411');
     const datas = {
       pg: 'tosspayment',
       pay_method: 'card',

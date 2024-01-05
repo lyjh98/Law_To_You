@@ -383,6 +383,9 @@
   width: calc(100vw / 1.14);
   flex-direction: row-reverse;
   margin-top: 20px;
+  position: relative;
+  right: 120px;
+  top: 50px;
   .board-write-btn {
     width: 171px;
     height: 43px;
